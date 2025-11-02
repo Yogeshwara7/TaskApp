@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { useTask } from '../context/TaskContext';
 
 const TaskFilter = React.memo(() => {
-  const { filter, setFilter, stats } = useTask();
+  const { filter, setFilter, stats, theme } = useTask();
 
   const handleFilterChange = useCallback((newFilter) => {
     setFilter(newFilter);
@@ -26,8 +26,9 @@ const TaskFilter = React.memo(() => {
               : 'bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600'
           }`}
           style={filter !== key ? { 
-            color: 'var(--text-color, #111827)',
-            backgroundColor: 'var(--text-color)' === '#111827' ? '#f3f4f6' : '#374151'
+            color: theme === 'light' ? '#111827' : '#d1d5db',
+            backgroundColor: theme === 'light' ? '#ffffff' : '#374151',
+            border: theme === 'light' ? '1px solid #e5e7eb' : 'none'
           } : {}}
         >
           {label}

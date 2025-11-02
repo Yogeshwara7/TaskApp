@@ -5,7 +5,7 @@ import { useTask } from '../context/TaskContext';
 const TaskForm = React.memo(() => {
   const [inputValue, setInputValue] = useState('');
   const [error, setError] = useState('');
-  const { addTask } = useTask();
+  const { addTask, theme } = useTask();
 
   const handleSubmit = useCallback((e) => {
     e.preventDefault();
@@ -36,11 +36,15 @@ const TaskForm = React.memo(() => {
             value={inputValue}
             onChange={handleInputChange}
             placeholder="Add a new task..."
-            className={`w-full px-4 py-3 rounded-lg border-2 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 ${
+            className={`w-full px-4 py-3 rounded-lg border-2 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
               error 
                 ? 'border-red-500 focus:border-red-500 dark:border-red-400' 
                 : 'border-gray-300 focus:border-blue-500 dark:border-gray-600 dark:focus:border-blue-400'
             }`}
+            style={{
+              backgroundColor: theme === 'light' ? '#ffffff' : '#374151',
+              color: theme === 'light' ? '#111827' : '#f9fafb'
+            }}
           />
           {error && (
             <p className="text-red-500 text-sm mt-1 animate-fade-in">

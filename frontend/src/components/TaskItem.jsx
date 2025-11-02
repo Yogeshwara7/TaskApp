@@ -3,7 +3,7 @@ import { Trash2, GripVertical } from 'lucide-react';
 import { useTask } from '../context/TaskContext';
 
 const TaskItem = React.memo(({ task, index, dragHandleProps }) => {
-  const { toggleTask, deleteTask } = useTask();
+  const { toggleTask, deleteTask, theme } = useTask();
 
   const handleToggle = useCallback(() => {
     toggleTask(task.id);
@@ -14,9 +14,12 @@ const TaskItem = React.memo(({ task, index, dragHandleProps }) => {
   }, [task.id, deleteTask]);
 
   return (
-    <div className={`group flex items-center gap-3 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 transition-all duration-200 hover:shadow-md ${
+    <div className={`group flex items-center gap-3 p-4 rounded-lg shadow-sm border transition-all duration-200 hover:shadow-md ${
       task.completed ? 'opacity-75' : ''
-    }`}>
+    }`} style={{ 
+      backgroundColor: theme === 'light' ? '#ffffff' : '#1f2937',
+      borderColor: theme === 'light' ? '#e5e7eb' : '#374151'
+    }}>
       {/* Drag Handle */}
       <div 
         {...dragHandleProps}
