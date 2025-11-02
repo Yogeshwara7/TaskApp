@@ -5,10 +5,10 @@ A simple and elegant task management app built with React and Tailwind CSS. Add,
 ## Screenshots
 
 **Light Theme**
-![Light Theme](./frontend/screenshot-light.png.png)
+![Light Theme](./frontend/screenshot-light.png)
 
 **Dark Theme**
-![Dark Theme](./frontend/screenshot-dark.png.png)
+![Dark Theme](./frontend/screenshot-dark.png)
 
 ## Quick Start
 
